@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #4475e6;
+  --primary-hover: #3361d1;
+  --text-primary: #383941;
+  --text-secondary: #898787;
+  --text-muted: #666;
+  --light-bg: #f8fafc;
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+  --max-w: 1200px;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-background: var(--white);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+body {
+  background: var(--white);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Utility classes matching original */
+.text-primary-blue {
+  color: var(--primary);
+}
+
+/* Toast animations */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Flask HTML content styling */
+.flask-content {
+  width: 100%;
+}
+
+.flask-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.flask-content .error,
+.flask-content h1 {
+  color: #6b7280;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+/* Flask table styling */
+.flask-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.flask-content th,
+.flask-content td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.flask-content th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* No data message styling */
+.no-transaction-records,
+.no-transaction-content,
+.no-transaction-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  padding: 2rem;
+}
