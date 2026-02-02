@@ -17,7 +17,9 @@ const isKVConfigured = !!(process.env.KV_REST_API_URL && process.env.KV_REST_API
 const GLOBAL_SESSION_KEY = '__MIB_SESSION_STORE__' as const;
 
 function getInMemoryStore(): Map<string, UserSession> {
-  const g = globalThis as Record<string, Map<string, UserSession>>;
+  const g = globalThis as typeof globalThis & {
+    [GLOBAL_SESSION_KEY]?: Map<string, UserSession>;
+  };
   if (!g[GLOBAL_SESSION_KEY]) {
     g[GLOBAL_SESSION_KEY] = new Map<string, UserSession>();
   }

@@ -40,9 +40,19 @@ interface PropertyInfo {
   last_record?: LastRecord;
 }
 
+type HtmlContainer = {
+  html?: string;
+  [key: string]: HtmlContainer | string | number | boolean | null | undefined;
+};
+
 interface SectionData {
   html?: string;
-  [key: string]: unknown;
+  map?: HtmlContainer;
+  table?: HtmlContainer;
+  chart?: HtmlContainer;
+  public_schools?: HtmlContainer;
+  private_schools?: HtmlContainer;
+  [key: string]: HtmlContainer | string | number | boolean | null | undefined;
 }
 
 interface AVMData {
